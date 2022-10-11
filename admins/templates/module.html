@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+
+
+
+
+{% block contents %}
+
+<form method = "post" enctype="multipart/form-data" class="creationform">
+    {% csrf_token %}
+    {{form.as_p }}
+    <input type="submit" value=Submit >
+</form>
+
+
+{% endblock contents %}

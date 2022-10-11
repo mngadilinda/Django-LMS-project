@@ -1,0 +1,37 @@
+{% extends 'index.html' %}
+
+
+
+{% block contents %}
+
+<div class="showbase container">
+    <div class="title">
+        <h2>GREYBOX</h2><br>
+        <h3>TECHNOLOGIES</h3><br>
+        <h4>LEARNING MANAGEMENT SYSTEM</h4>
+        <p>Welcome {{user.username}} </p>
+    </div>
+    <div class="serachbar">
+        <form class="d-flex" role="search">
+            <input class="form-control me-2" type="search" placeholder="Search Program or Module" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+    </div>
+</div>
+<div class="showcourse container">
+    <h2>SOME OF OUR LATEST COURSES</h2>
+    <div class="cardss">
+        {% for course in programs %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{course.program_img}}" class="card-img-top" alt="thumbnail">
+            <div class="card-body">
+                <h5 class="card-title">{{course.title}}</h5>
+                <p class="card-text">{{course.description}}</p>
+                <a href="{% url 'createprog' %}" class="btn btn-outline-primary">MORE...</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>  
+</div>
+
+{% endblock contents %}
